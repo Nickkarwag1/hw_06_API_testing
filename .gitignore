@@ -2,3 +2,4 @@
 /.idea
 .prettierrc.json
 tsconfig.json
+jest.config.js
