@@ -1,4 +1,12 @@
-export const STATUS_CODES = {
+interface StatusCodes {
+    OK: number;
+    CREATED: number;
+    NO_CONTENT: number;
+    BAD_REQUEST: number;
+    NOT_FOUND: number;
+}
+
+export const STATUS_CODES: StatusCodes = {
     OK: 200,
     CREATED: 201,
     NO_CONTENT: 204,

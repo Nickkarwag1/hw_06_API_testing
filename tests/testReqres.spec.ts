@@ -4,8 +4,6 @@ import { STATUS_CODES } from "../constants/statusCodes";
 import { USERS } from "../constants/users";
 
 const { POST_USER, POST_REGISTER_SUC_USER, POST_REGISTER_UNSUC_USER, PUT_OR_PATCH_USER } = USERS;
-const { name, job } = POST_USER;
-const { email, password } = POST_REGISTER_SUC_USER;
 
 describe("API testing Reqres.in", () => {
     test("List users", async () => {
@@ -29,6 +27,7 @@ describe("API testing Reqres.in", () => {
     });
 
     test("Create User", async () => {
+        const { name, job } = POST_USER;
         let result: any = await superagent.post(ENDPOINTS.POST.CREATE).send({ name, job });
         expect(result.status).toBe(STATUS_CODES.CREATED);
         expect(result.body?.name).toBe(POST_USER.name);
@@ -36,6 +35,7 @@ describe("API testing Reqres.in", () => {
     });
 
     test("Register User - SUCCESSFUL", async () => {
+        const { email, password } = POST_REGISTER_SUC_USER;
         let expectedField = {
             id: 4,
             token: "QpwL5tke4Pnpja7X4",
